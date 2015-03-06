@@ -26,8 +26,8 @@ function lineplot(x::AbstractArray, y::AbstractArray)
     y = y / maximum(y)
 
     # Snap data points to a grid
-    xi = ifloor(x * (res_x - 1)) .+ 1
-    yi = ifloor(y * (res_y - 1)) .+ 1
+    xi = floor(Int, x * (res_x - 1)) .+ 1
+    yi = floor(Int, y * (res_y - 1)) .+ 1
 
     # Compute slope and non-empty points
     dy = diff([y, 2 * y[end] - y[end - 1]]) ./
